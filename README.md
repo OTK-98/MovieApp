@@ -5,7 +5,6 @@ This is my first project using Kotlin, integrated with the TMDB (The Movie Datab
 ## Features
 
 - Browse popular movies
-- Browse upcoming movies
 - View detailed information about movies
 - Modern UI with Jetpack Compose
 - Dependency injection with Dagger Hilt
