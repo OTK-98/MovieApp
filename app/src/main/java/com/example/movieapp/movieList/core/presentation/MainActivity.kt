@@ -11,6 +11,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
+import androidx.core.view.WindowCompat
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -27,35 +28,36 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+
         setContent {
             MovieAppTheme {
-               // SetBarColor(color = MaterialTheme.colorScheme.inverseOnSurface)
-              Surface(
-                  modifier = Modifier.fillMaxSize(),
-                  color = MaterialTheme.colorScheme.background
-              ) {
+                // SetBarColor(color = MaterialTheme.colorScheme.inverseOnSurface)
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
+                ) {
 
-                  val navController = rememberNavController()
+                    val navController = rememberNavController()
 
-                  NavHost(
-                      navController = navController,
-                      startDestination = Screen.Home.rout
-                  ) {
-                      composable(Screen.Home.rout) {
-                          HomeScreen(navController)
-                      }
+                    NavHost(
+                        navController = navController,
+                        startDestination = Screen.Home.rout
+                    ) {
+                        composable(Screen.Home.rout) {
+                            HomeScreen(navController)
+                        }
 
-                      composable(
-                          Screen.Details.rout + "/{movieId}",
-                          arguments = listOf(
-                              navArgument("movieId") { type = NavType.IntType }
-                          )
-                      ) { backStackEntry ->
-                            DetailsScreen(backStackEntry)
-                      }
-                  }
+                        composable(
+                            Screen.Details.rout + "/{movieId}",
+                            arguments = listOf(
+                                navArgument("movieId") { type = NavType.IntType }
+                            )
+                        ) { backStackEntry ->
+                            DetailsScreen(navController = navController, backStackEntry = backStackEntry)
+                        }
+                    }
 
-              }
+                }
             }
         }
     }

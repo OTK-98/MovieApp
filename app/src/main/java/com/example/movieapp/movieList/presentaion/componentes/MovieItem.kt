@@ -12,7 +12,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.ImageNotSupported
@@ -46,7 +45,6 @@ import com.example.movieapp.movieList.util.RatingBar
 import com.example.movieapp.movieList.util.Screen
 import com.example.movieapp.movieList.util.getAverageColor
 
-
 @Composable
 fun MovieItem(
     movie: Movie,
@@ -64,12 +62,11 @@ fun MovieItem(
         mutableStateOf(defaultColor)
     }
 
-    Column(
+    Row(
         modifier = Modifier
-            .wrapContentHeight()
-            .width(200.dp)
-            .padding(8.dp)
-            .clip(RoundedCornerShape(28.dp))
+            .fillMaxWidth()
+            .padding(horizontal = 8.dp, vertical = 4.dp)
+            .clip(RoundedCornerShape(16.dp))
             .background(
                 Brush.verticalGradient(
                     colors = listOf(
@@ -81,14 +78,13 @@ fun MovieItem(
             .clickable {
                 navHostController.navigate(Screen.Details.rout + "/${movie.id}")
             }
+            .padding(8.dp) // Additional padding for content
     ) {
         if (imageState is AsyncImagePainter.State.Error) {
             Box(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(6.dp)
-                    .height(250.dp)
-                    .clip(RoundedCornerShape(22.dp))
+                    .size(120.dp)
+                    .clip(RoundedCornerShape(16.dp))
                     .background(MaterialTheme.colorScheme.primaryContainer),
                 contentAlignment = Alignment.Center
             ) {
@@ -107,63 +103,59 @@ fun MovieItem(
 
             Image(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(6.dp)
-                    .height(250.dp)
-                    .clip(RoundedCornerShape(22.dp)),
+                    .size(120.dp)
+                    .clip(RoundedCornerShape(16.dp)),
                 painter = imageState.painter,
                 contentDescription = movie.title,
                 contentScale = ContentScale.Crop
             )
         }
 
-        Spacer(modifier = Modifier.height(6.dp))
+        Spacer(modifier = Modifier.width(8.dp))
 
-        Text(
-            modifier = Modifier.padding(start = 16.dp, end = 8.dp),
-            text = movie.title,
-            color = Color.White,
-            fontSize = 15.sp,
-            maxLines = 1
-        )
-
-        Row (
+        Column(
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(start = 16.dp, bottom = 12.dp, top = 4.dp)
+                .weight(1f)
+                .padding(start = 8.dp)
         ) {
-            RatingBar(
-                starsModifier = Modifier.size(18.dp),
-                rating = movie.vote_average / 2
+            Text(
+                text = movie.title,
+                color = Color.White,
+                fontSize = 16.sp,
+                maxLines = 1
             )
 
             Text(
-                modifier = Modifier.padding(start = 4.dp),
-                text = movie.vote_average.toString().take(3),
+                text = movie.original_title,
                 color = Color.LightGray,
                 fontSize = 14.sp,
-                maxLines = 1,
+                modifier = Modifier.padding(top = 4.dp)
             )
+
+            Text(
+                text = movie.release_date,
+                color = Color.LightGray,
+                fontSize = 14.sp,
+                modifier = Modifier.padding(top = 4.dp)
+            )
+
+            Row(
+                modifier = Modifier.padding(top = 4.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                RatingBar(
+                    starsModifier = Modifier.size(18.dp),
+                    rating = movie.vote_average / 2
+                )
+
+                Text(
+                    modifier = Modifier.padding(start = 4.dp),
+                    text = movie.vote_average.toString().take(3),
+                    color = Color.LightGray,
+                    fontSize = 14.sp,
+                    maxLines = 1,
+                )
+            }
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

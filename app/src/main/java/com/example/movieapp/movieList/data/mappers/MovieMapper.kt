@@ -1,12 +1,11 @@
-package  com.example.movieapp.movieList.data.mappers
+package com.example.movieapp.movieList.data.mappers
 
 import com.example.movieapp.movieList.data.local.movie.MovieEntity
 import com.example.movieapp.movieList.data.remote.respond.MovieDto
 import com.example.movieapp.movieList.domain.model.Movie
 
-fun MovieDto.toMovieEntity(
-    category: String
-): MovieEntity {
+
+fun MovieDto.toMovieEntity(): MovieEntity {
     return MovieEntity(
         adult = adult ?: false,
         backdrop_path = backdrop_path ?: "",
@@ -21,9 +20,6 @@ fun MovieDto.toMovieEntity(
         id = id ?: -1,
         original_title = original_title ?: "",
         video = video ?: false,
-
-        category = category,
-
         genre_ids = try {
             genre_ids?.joinToString(",") ?: "-1,-2"
         } catch (e: Exception) {
@@ -32,9 +28,8 @@ fun MovieDto.toMovieEntity(
     )
 }
 
-fun MovieEntity.toMovie(
-    category: String
-): Movie {
+
+fun MovieEntity.toMovie(): Movie {
     return Movie(
         backdrop_path = backdrop_path,
         original_language = original_language,
@@ -49,9 +44,6 @@ fun MovieEntity.toMovie(
         id = id,
         adult = adult,
         original_title = original_title,
-
-        category = category,
-
         genre_ids = try {
             genre_ids.split(",").map { it.toInt() }
         } catch (e: Exception) {
@@ -59,22 +51,3 @@ fun MovieEntity.toMovie(
         }
     )
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

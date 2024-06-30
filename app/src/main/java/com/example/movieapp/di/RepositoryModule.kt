@@ -19,25 +19,3 @@ abstract class RepositoryModule {
     ): MovieListRepository
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
