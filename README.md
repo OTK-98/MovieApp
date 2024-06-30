@@ -12,14 +12,11 @@ This is my first project using Kotlin, integrated with the TMDB (The Movie Datab
 
 ## Screenshots
 
-![Popular Movie Screen](https://github.com/OTK-98/MovieApp/blob/master/app/src/main/java/com/example/movieapp/screenshots/Popular%20Screen.png?raw=true)
-*Popular Movie Screen*
-
-![Upcoming Movie Screen](https://github.com/OTK-98/MovieApp/blob/master/app/src/main/java/com/example/movieapp/screenshots/Upcoming%20Screen.png?raw=true)
-*Upcoming Movie Screen*
-
-![Details Movie Screen](https://github.com/OTK-98/MovieApp/blob/master/app/src/main/java/com/example/movieapp/screenshots/Details%20Screen.png?raw=true)
-*Details Movie Screen*
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+  <img src="https://github.com/OTK-98/MovieApp/blob/master/app/src/main/java/com/example/movieapp/screenshots/Popular%20Screen.png?raw=true" alt="Popular Movie Screen" width="30%">
+  <img src="https://github.com/OTK-98/MovieApp/blob/master/app/src/main/java/com/example/movieapp/screenshots/Upcoming%20Screen.png?raw=true" alt="Upcoming Movie Screen" width="30%">
+  <img src="https://github.com/OTK-98/MovieApp/blob/master/app/src/main/java/com/example/movieapp/screenshots/Details%20Screen.png?raw=true" alt="Details Movie Screen" width="30%">
+</div>
 
 ## Installation
 
