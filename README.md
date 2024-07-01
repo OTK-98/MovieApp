@@ -5,7 +5,6 @@ This is my first project using Kotlin, integrated with the TMDB (The Movie Datab
 ## Features
 
 - Browse popular movies
-- Browse upcoming movies
 - View detailed information about movies
 - Modern UI with Jetpack Compose
 - Dependency injection with Dagger Hilt
@@ -13,19 +12,13 @@ This is my first project using Kotlin, integrated with the TMDB (The Movie Datab
 ## Screenshots
 
 <p style="text-align: center;">
-  <img src="https://github.com/OTK-98/MovieApp/blob/master/app/src/main/java/com/example/movieapp/screenshots/Popular%20Screen.png?raw=true" alt="Popular Movie Screen" width="300"/>
+  <img src="https://github.com/OTK-98/MovieApp/blob/master/app/src/main/java/com/example/movieapp/screenshots/Popular%20Screen.jpeg?raw=true" alt="Popular Movie Screen" width="300"/>
   <br/>
   <em>Popular Movie Screen</em>
 </p>
 
 <p style="text-align: center;">
-  <img src="https://github.com/OTK-98/MovieApp/blob/master/app/src/main/java/com/example/movieapp/screenshots/Upcoming%20Screen.png?raw=true" alt="Upcoming Movie Screen" width="300"/>
-  <br/>
-  <em>Upcoming Movie Screen</em>
-</p>
-
-<p style="text-align: center;">
-  <img src="https://github.com/OTK-98/MovieApp/blob/master/app/src/main/java/com/example/movieapp/screenshots/Details%20Screen.png?raw=true" alt="Details Movie Screen" width="300"/>
+  <img src="https://github.com/OTK-98/MovieApp/blob/master/app/src/main/java/com/example/movieapp/screenshots/Details%20Screen.jpeg?raw=true" alt="Details Movie Screen" width="300"/>
   <br/>
   <em>Details Movie Screen</em>
 </p>
